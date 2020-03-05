@@ -1,45 +1,14 @@
-.. _mqtt_simple_sample:
+A script for setting up the LTE-M modem with the MQTT broker.
 
-nRF9160: Simple MQTT
-####################
+The code runs in a loopback in order to establish a Client-Server connection.
 
-The Simple MQTT sample demonstrates how to easily connect an nRF9160 SiP to an MQTT broker and send and receive data.
+We then have the possibility to send commands and recive status, data, enable diving mode etc.
+In this example, if we publish "d" to the nRF9160, the code will break out of the loopback and can start executing tasks. (Just edit to whatever command you want)
 
-Overview
-*********
+See the Prj CONF file for MQTT topics, MQTT broker and Other configurations.
 
-The sample connects to an MQTT broker and publishes whatever data it receives on the configured subscribe topic to the configured publish topic.
 
-Requirements
-************
-
-* The following development board:
-
-  * |nRF9160DK|
-
-* .. include:: /includes/spm.txt
-
-Building and running
-********************
-
-.. |sample path| replace:: :file:`samples/nrf9160/mqtt_simple`
-
-.. include:: /includes/build_and_run_nrf9160.txt
-
-Testing
-=======
-
-After programming the sample and all prerequisites to the board, test it by performing the following steps:
-
-1. Connect the USB cable and power on or reset your nRF9160 DK.
-#. Open a terminal emulator and observe that the kit prints the following information::
-
-       The MQTT simple sample started
-#. Observe that the kit connects to the configured MQTT broker (``MQTT_BROKER_HOSTNAME``) after it gets LTE connection.
-   Now the kit is ready to echo whatever data is sent to it on the configured subscribe topic (``MQTT_SUB_TOPIC``).
-#. Use an MQTT client like mosquitto to subscribe to and publish data to the broker.
-   Observe that the kit publishes all data that you publish to ``MQTT_SUB_TOPIC`` on ``MQTT_PUB_TOPIC``.
-
+ 
 Troubleshooting
 ===============
 
@@ -66,9 +35,3 @@ In addition, it uses the following samples:
 From |NCS|
   * :ref:`secure_partition_manager`
 
-References
-**********
-
-See the following page for information about how to enable Transport Security Layer in the Simple MQTT sample:
-
-    * `Enabling and testing TLS in mqtt_simple`_
