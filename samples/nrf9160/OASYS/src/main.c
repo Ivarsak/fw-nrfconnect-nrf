@@ -1,15 +1,11 @@
 #include <nrf9160.h>
 #include <zephyr.h>
-#include <misc/printk.h>
-#include <pwm.h>
 #include <device.h>
 #include <drivers/sensor.h>
 #include <stdio.h>
-#include <SPI.h>
 #include <disk/disk_access.h>
 #include <fs/fs.h>
 #include <logging/log.h>
-#include <ff.h>
 
 
 LOG_MODULE_REGISTER(main);
